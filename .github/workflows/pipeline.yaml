@@ -1,10 +1,9 @@
-name: Build and Deploy to GKE
-
+name: Docker-GCP
 on:
   push:
     branches:
-      - main
-
+    - main
+  pull_request:
 env:
   PROJECT_ID: ${{secrets.GKE_PROJECT}}
   GKE_CLUSTER: github-actions-gke
@@ -12,7 +11,6 @@ env:
   DEPLOYMENT_NAME: github-actions-gke
   IMAGE: github-actions-gke-image
   TAG: 1.0.0
-
 jobs:
   setup-build-publish-deploy:
     name: Setup Build Publish Deploy
